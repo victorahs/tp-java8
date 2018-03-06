@@ -14,21 +14,23 @@ public class Function_01_Test {
 
     /******** PART 1 - Integer -> Person *******/
 
-    // tag::intToPerson[]
-    // TODO Compléter la définition de cette fonction
-    // TODO Cette fonction permet de transformer un entier en objet Person
-    // TODO le prenom sera de la forme "first_<ENTIER>"
-    // TODO le nom sera de la forme "last_<ENTIER>"
-    // TODO l'age sera de la forme "<ENTIER>"
-    // TODO le mot de passe sera de la forme "pass_<ENTIER>"
-    private Function<Integer, Person> intToPerson = null;
+
+    private Function<Integer, Person> intToPerson = i -> {
+		Person person = new Person();
+		person.setFirstname("first_"+ i );
+		person.setLastname("last_"+ i);
+		person.setAge(i);
+		person.setPassword("pass_" + i);
+		return person;
+
+	};
     // end::intToPerson[]
 
     @Test
     public void test_intToPerson() throws Exception {
 
         // TODO invoquer la fonction intToPerson avec en paramètre l'entier 10.
-        Person result = null;
+        Person result = intToPerson.apply(10);
 
         assert result.getFirstname().equals("first_10");
         assert result.getLastname().equals("last_10");
