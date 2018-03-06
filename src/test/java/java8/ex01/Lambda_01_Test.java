@@ -26,9 +26,9 @@ public class Lambda_01_Test {
 		List<Person> filtre = new ArrayList<>();
 		
 		for (Person p : persons) {
-			
+
 			if (predicate.test(p)) {
-				
+
 				filtre.add(p);
 			}
 
