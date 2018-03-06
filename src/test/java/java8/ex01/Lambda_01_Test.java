@@ -23,9 +23,12 @@ public class Lambda_01_Test {
 	// tag::filter[]
 	private List<Person> filter(List<Person> persons, PersonPredicate predicate) {
 		// TODO implementer la méthode
-		List filtre = new ArrayList<>();
+		List<Person> filtre = new ArrayList<>();
+		
 		for (Person p : persons) {
+			
 			if (predicate.test(p)) {
+				
 				filtre.add(p);
 			}
 
@@ -41,20 +44,20 @@ public class Lambda_01_Test {
 		List<Person> personList = Data.buildPersonList(100);
 
 		// TODO result ne doit contenir que des personnes adultes (age >= 18)
-/* CREACTION DE LA METHODE ANNONYME COMME EXEMPLE */
-//		List<Person> result = filter(personList, new PersonPredicate() {
-//
-//			@Override
-//			public boolean test(Person p) {
-//				// TODO Auto-generated method stub
-//
-//				return p.getAge() >= 18;
-//
-//			}
-//		});
+		/* CREACTION DE LA METHODE ANNONYME COMME EXEMPLE */
+		// List<Person> result = filter(personList, new PersonPredicate() {
+		//
+		// @Override
+		// public boolean test(Person p) {
+		// // TODO Auto-generated method stub
+		//
+		// return p.getAge() >= 18;
+		//
+		// }
+		// });
 
 		List<Person> result = filter(personList, p -> p.getAge() >= 18);
-		
+
 		assert result.size() == 83;
 
 		for (Person person : result) {
@@ -71,7 +74,7 @@ public class Lambda_01_Test {
 
 		// TODO result ne doit contenir que des personnes dont le prénom est
 		// "first_10"
-		List<Person> result = filter(personList,  p -> p.getFirstname().equals("first_10"));
+		List<Person> result = filter(personList, p -> p.getFirstname().equals("first_10"));
 
 		assert result.size() == 1;
 		assert result.get(0).getFirstname().equals("first_10");
@@ -92,7 +95,8 @@ public class Lambda_01_Test {
 		// passwordSha512Hex
 		// TODO Pour obtenir le hash d'un mot, utiliser la méthode
 		// DigestUtils.sha512Hex(mot)
-		List<Person> result = filter(personList,  p ->  p.getAge() > 45 && DigestUtils.sha512Hex(p.getPassword()).equals(passwordSha512Hex));
+		List<Person> result = filter(personList,
+				p -> p.getAge() > 45 && DigestUtils.sha512Hex(p.getPassword()).equals(passwordSha512Hex));
 
 		assert result.size() == 6;
 		for (Person person : result) {
