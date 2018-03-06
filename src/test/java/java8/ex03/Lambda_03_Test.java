@@ -34,10 +34,7 @@ public class Lambda_03_Test {
 
 		List<Person> personList = Data.buildPersonList(100);
 
-		// TODO vérifier qu'une personne à un prénom qui commence par first
-		// TODO vérifier qu'une personne à un nom qui commence par last
-		// TODO vérifier qu'une personne à un age > 0
-		// TODO la vérification se fait via une assertion (mot clé assert)
+
 		PersonProcessor verifyPerson = p -> {
 			assert ((p.getFirstname().startsWith("first")) && (p.getLastname().startsWith("last")) && (p.getAge() > 0));
 
