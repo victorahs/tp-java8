@@ -1,4 +1,10 @@
 /target/
 .settings
 .classpath
+<<<<<<< HEAD
 .project
+=======
+.project
+.settings
+/target/
+>>>>>>> f454fd8aceb70bc2bead6f097116a893b79dfb1b
